@@ -3,10 +3,10 @@ const mysql = require('mysql');
 
 // Membuat connection
 const connection = mysql.createConnection({
-    host: '153.92.11.219',
-    user: 'u537584813_tantri',
-    password: 'Manaloe11.',
-    database: 'u537584813_db_lobster'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'db_lobster'
 });
 connection.connect((err) => {
     if (err) {
