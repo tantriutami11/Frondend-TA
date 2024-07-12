@@ -1,0 +1,139 @@
+/* General styles */
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #6aadd9;
+}
+
+.parameters {
+    padding-top: 25px;
+}
+
+.img-back {
+    margin-left: 40px; 
+}
+
+.text {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(41, 46, 49);
+}
+
+.left-right {
+    padding-top: 80px;
+}
+
+.content-parameter {
+    background-color: rgb(225, 240, 247);
+    width: 600px;
+    height: 250px;
+    align-content: center;
+    border-radius: 15px;   
+}
+
+.button-time {
+    padding-top: 90px;
+}
+
+.button-download-am,
+.button-download-do,
+.button-download-ph,
+.button-download-temp,
+.button-download-solar {
+    margin-top: 400px; /* Adjust the spacing between button and chart */
+    margin-bottom: 70px;
+}
+
+.button-download-solar {
+    margin-top: 310px;
+}
+
+.chart {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: auto;
+    height: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .content-parameter {
+        width: 80%;
+        height: auto;
+    }
+
+    .button-download-am,
+    .button-download-do,
+    .button-download-ph,
+    .button-download-temp,
+    .button-download-solar {
+        margin-top: 200px;
+    }
+
+    .button-download-solar {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 80px;
+    }
+
+    .text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .img-back {
+        margin-left: 0;
+    }
+
+    .content-parameter {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .left-right {
+        padding-top: 40px;
+    }
+
+    .button-download-am,
+    .button-download-do,
+    .button-download-ph,
+    .button-download-temp,
+    .button-download-solar {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 60px;
+    }
+
+    .parameters {
+        padding-top: 15px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .content-parameter {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .button-download-am,
+    .button-download-do,
+    .button-download-ph,
+    .button-download-temp,
+    .button-download-solar {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}

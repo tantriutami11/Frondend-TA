@@ -1,0 +1,135 @@
+/* Tambahkan di awal CSS untuk memastikan semua elemen box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya untuk header */
+header {
+    background-color: #97cbef;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    flex-wrap: wrap; /* Membuat elemen di dalam header bisa berbaris baru jika diperlukan */
+}
+
+.header {
+    padding-top: 16px;
+}
+
+.logo-del,
+.logo-lobster {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    margin-left: 50px;
+    margin-top: -10px; /* Tambahkan margin negatif untuk menaikkan posisi logo */
+}
+
+.text-header {
+    display: flex;
+    align-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(38, 43, 46);
+    text-align: center;
+    padding-top: 25px;
+    font-size: 24px; /* Ukuran font default */
+}
+
+.left-right {
+    padding-top: 65px;
+}
+
+.content-parameter,
+.content-panel {
+    background-color: rgb(225, 240, 247);
+    align-content: center;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+/* Pengaturan lebar untuk kolom */
+.content-parameter, .content-panel {
+    width: 100%;
+    height: 250px;
+    margin: 0 auto 20px auto;
+}
+
+/* Media Query untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    .logo-del, .logo-lobster {
+        margin: 0 auto;
+        margin-top: -10px; /* Tambahkan margin negatif untuk layar kecil juga */
+        width: 60px; /* Perkecil ukuran logo */
+        height: 60px; /* Perkecil ukuran logo */
+    }
+
+    .text-header {
+        padding-left: 0;
+        padding-top: 10px; /* Kurangi padding atas */
+        text-align: center;
+        font-size: 18px; /* Perkecil ukuran font untuk layar kecil */
+    }
+
+    .content-parameter, .content-panel {
+        width: 100%;
+        margin-bottom: 20px;
+        height: auto; /* Sesuaikan tinggi untuk konten yang lebih fleksibel */
+    }
+
+    .content-parameter img, .content-panel img {
+        width: 50px; /* Sesuaikan ukuran gambar dalam parameter */
+        height: auto;
+    }
+
+    .fulltext h6 {
+        font-size: 16px; /* Sesuaikan ukuran font untuk teks dalam parameter */
+    }
+
+    .fulltext p {
+        font-size: 14px; /* Sesuaikan ukuran font untuk paragraf dalam parameter */
+    }
+}
+
+/* Media Query untuk layar sedang (tablet) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .text-header {
+        padding-left: 0;
+        text-align: center;
+        font-size: 20px; /* Sesuaikan ukuran font untuk layar sedang */
+    }
+
+    .content-parameter, .content-panel {
+        width: 80%;
+        margin: 0 auto 20px auto;
+        height: auto; /* Sesuaikan tinggi untuk konten yang lebih fleksibel */
+    }
+
+    .content-parameter img, .content-panel img {
+        width: 70px; /* Sesuaikan ukuran gambar dalam parameter */
+        height: auto;
+    }
+
+    .fulltext h6 {
+        font-size: 18px; /* Sesuaikan ukuran font untuk teks dalam parameter */
+    }
+
+    .fulltext p {
+        font-size: 16px; /* Sesuaikan ukuran font untuk paragraf dalam parameter */
+    }
+}
+
+/* Media Query untuk layar besar (desktop) */
+@media (min-width: 992px) {
+    .text-header {
+        padding-left: 130px;
+        font-size: 24px; /* Ukuran font default untuk layar besar */
+    }
+
+    .content-parameter, .content-panel {
+        width: 550px;
+    }
+}

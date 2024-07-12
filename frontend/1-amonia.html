@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammonia Details</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./getData.js"></script>
+</head>
+
+<body>
+    <!-- Header Ammonia Level -->
+    <header>
+        <div class="container-fluid parameters">
+            <div class="row">
+                <div class="col-1 img-back">
+                    <a href="./index.html"><img src="./image/ep_back.png" height="40px"></a>
+                </div>
+
+                <div class="col text">
+                    <h2>Ammonia Level (Am)</h2>
+                </div>
+            </div>
+        </div>  
+    </header>
+
+    <main>
+        <!-- Container menampung amm-->
+        <div class="container text-center">
+            <!-- Membuat 1 row dengan 2 kolom yaitu amm dan tombol  -->
+            <div class="row left-right">
+                <!-- col amonia -->
+                <div class="col-6 content-parameter">
+                    <!-- bangun row di col amonia dan membangun 2 col logo-amm dan text-amm-->
+                    <div class="row">
+                        <!-- membangun col logo-amm -->
+                        <div class="col-4 logo">
+                            <img src="./image/image 8.png">
+                        </div>
+
+                        <!-- membangun coll text-amm dengan 6 row-->
+                        <div class="col fulltext" style="margin-right: 70px;">
+                            <!-- membangun row text1  -->
+                            <div class="row text1">
+                                <h6>Ammonia Level (Am) Information</h6>
+                            </div>
+                            <!-- membangun row text2 -->
+                            <div class="row text2">
+                                <p>Current Am</p>
+                            </div>
+                            <!-- membangun row text3 -->
+                            <div class="row text3">
+                                <p id="current-am">0</p>
+                            </div>
+                            <!-- membangun row text4 -->
+                            <div class="row text4">
+                                <p>Good Am for Lobster: 1 ppm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- membuat button-time -->
+                <div class="col button-time">
+                    <button id="day" class="btn btn-primary" type="submit" style="margin: 10px;">Daily</button>
+                    <button id="week" class="btn btn-primary" type="submit" style="margin: 10px;">Weekly</button>
+                    <button id="month" class="btn btn-primary" type="submit" style="margin: 10px;">Monthly</button>
+                </div>
+            </div>
+            <div class="row left-right">
+              <div class="col-10">
+                <canvas id="am-chart"></canvas>
+              </div>
+              <div class="col download">
+                <button type="button" class="btn btn-outline-success button-download-am" style="margin-top: 420px;">Download </button>
+              </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-white mt-5 p-4" style=" background-color:#202121">
+        <div class="container">
+          <div class="row">
+            <div class="col log-md-4 log-lobster" style="margin-left: -10px;">
+              <img src="./image/blue-lobster-isolated-on-a-white-sticker-free-image-png.png" width="140">
+            </div>
+            <div class="col-md-4">
+              <h5>Del Institute of Technology</h5>
+              <p>
+                Jl. Sisingamangaraja, Sitoluama <br>
+                Laguboti, Samosir <br>
+                North Sumatra, Indonesia <br>
+              </p>
+            </div>
+            <div class="col-md-6 text-end">
+              <p class="mt-3">&copy; 2024 Freshwater Lobster Farming. All Rights Reserved.</p>
+              <p class="mt-3">Group: TE-02</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="./1.amonia.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
