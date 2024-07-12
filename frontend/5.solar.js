@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
   function fetchDataAndUpdateChart(interval) {
     var apiUrl = '';
     if (interval === 'day') {
-      apiUrl = 'http://localhost:5000/api/v1/multisensor/day'; // Ganti dengan endpoint untuk data harian
+      apiUrl = 'http://103.175.219.33:5000/api/v1/multisensor/day'; // Ganti dengan endpoint untuk data harian
     } else if (interval === 'week') {
-      apiUrl = 'http://localhost:5000/api/v1/multisensor/week'; // Ganti dengan endpoint untuk data mingguan
+      apiUrl = 'http://103.175.219.33:5000/api/v1/multisensor/week'; // Ganti dengan endpoint untuk data mingguan
     } else if (interval === 'month') {
-      apiUrl = 'http://localhost:5000/api/v1/multisensor/month'; // Ganti dengan endpoint untuk data bulanan
+      apiUrl = 'http://103.175.219.33:5000/api/v1/multisensor/month'; // Ganti dengan endpoint untuk data bulanan
     }
 
     fetch(apiUrl)

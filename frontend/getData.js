@@ -1,5 +1,5 @@
 // Mendapatkan data sensor terbaru
-fetch('http://localhost:5000/api/v1/multisensor')
+fetch('http://103.175.219.33:5000/api/v1/multisensor')
   .then(response => response.json())
   .then(data => {
     const sensorData = data.response;
@@ -33,7 +33,7 @@ fetch('http://localhost:5000/api/v1/multisensor')
   .catch(error => console.error('Error:', error));
 
 // Mengambil data untuk satu hari (day)
-fetch('http://localhost:5000/api/v1/multisensor/day')
+fetch('http://103.175.219.33:5000/api/v1/multisensor/day')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -76,7 +76,7 @@ fetch('http://localhost:5000/api/v1/multisensor/day')
   .catch(error => console.error('Error fetching data from day endpoint:', error));
 
 // Mengambil data untuk satu minggu (week)
-fetch('http://localhost:5000/api/v1/multisensor/week')
+fetch('http://103.175.219.33:5000/api/v1/multisensor/week')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -101,7 +101,7 @@ fetch('http://localhost:5000/api/v1/multisensor/week')
   .catch(error => console.error('Error fetching data from week endpoint:', error));
 
 // Mengambil data untuk satu bulan (month)
-fetch('http://localhost:5000/api/v1/multisensor/month')
+fetch('http://103.175.219.33:5000/api/v1/multisensor/month')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
