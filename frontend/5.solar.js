@@ -113,23 +113,23 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Fungsi untuk mengubah data grafik berdasarkan tombol yang ditekan
-function updateChart(chart, labels, data, label) {
-  // Hitung nilai minimum dan maksimum dari data
-  var minValue = Math.min(...data);
-  var maxValue = Math.max(...data);
+  function updateChart(chart, labels, data, label) {
+    // Hitung nilai minimum dan maksimum dari data
+    var minValue = Math.min(...data);
+    var maxValue = Math.max(...data);
 
-  // Update data pada chart dengan data yang baru
-  chart.data.labels = labels;
-  chart.data.datasets[0].data = data;
+    // Update data pada chart dengan data yang baru
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = data;
 
-  // Update skala sumbu Y
-  chart.options.scales.y.min = minValue;
-  chart.options.scales.y.max = maxValue;
-  chart.options.scales.y.title.text = label;
+    // Update skala sumbu Y
+    chart.options.scales.y.min = minValue;
+    chart.options.scales.y.max = maxValue;
+    chart.options.scales.y.title.text = label;
 
-  // Update grafik
-  chart.update();
-}
+    // Update grafik
+    chart.update();
+  }
 
   // Menambahkan event listener untuk tombol "daily"
   dayButton.addEventListener("click", function() {
@@ -146,20 +146,26 @@ function updateChart(chart, labels, data, label) {
     fetchDataAndUpdateChart('month');
   });
 
-  // Fungsi untuk mengunduh data dalam format Excel
-  function downloadData(data) {
+  // Fungsi untuk mengunduh data dalam format CSV dari ketiga chart
+  function downloadData() {
     // Mendefinisikan label untuk file CSV
-    var csvLabels = "Waktu,Hasil Pengukuran\n";
+    var csvLabels = "Waktu,Temperature,Current,Voltage\n";
+
+    // Mendapatkan data dari ketiga chart
+    var labels = solarLineChart.data.labels;
+    var temperatureData = solarLineChart.data.datasets[0].data;
+    var currentData = currentLineChart.data.datasets[0].data;
+    var voltageData = voltageLineChart.data.datasets[0].data;
 
     // Mendefinisikan data untuk file CSV
-    var csvData = data.labels.map((label, index) => {
-      return label + "," + data.datasets[0].data[index];
+    var csvData = labels.map((label, index) => {
+      return `${label},${temperatureData[index]},${currentData[index]},${voltageData[index]}`;
     }).join("\n");
 
     // Gabungkan label dan data CSV
     var csvContent = "data:text/csv;charset=utf-8," + csvLabels + csvData;
 
-    // Proses membuat file Excel dan mengunduhnya
+    // Proses membuat file CSV dan mengunduhnya
     var encodedUri = encodeURI(csvContent);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -167,10 +173,9 @@ function updateChart(chart, labels, data, label) {
     document.body.appendChild(link); // Required for FF
 
     link.click();
+    document.body.removeChild(link);
   }
 
   // Menambahkan event listener untuk tombol "Download"
-  downloadButton.addEventListener("click", function() {
-    downloadData(solarLineChart.data);
-  });
+  downloadButton.addEventListener("click", downloadData);
 });

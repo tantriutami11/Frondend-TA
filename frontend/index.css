@@ -19,13 +19,12 @@ header {
     padding-top: 16px;
 }
 
-.logo-del,
-.logo-lobster {
+.logo-del {
     width: 90px;
     height: 90px;
     display: flex;
     margin-left: 50px;
-    margin-top: -10px; /* Tambahkan margin negatif untuk menaikkan posisi logo */
+    margin-top: -15px; /* Tambahkan margin negatif untuk menaikkan posisi logo */
 }
 
 .text-header {
@@ -34,7 +33,7 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(38, 43, 46);
     text-align: center;
-    padding-top: 25px;
+    padding-top: 10px;
     font-size: 24px; /* Ukuran font default */
 }
 
