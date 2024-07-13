@@ -146,36 +146,49 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchDataAndUpdateChart('month');
   });
 
-  // Fungsi untuk mengunduh data dalam format CSV dari ketiga chart
-  function downloadData() {
-    // Mendefinisikan label untuk file CSV
-    var csvLabels = "Waktu,Temperature,Current,Voltage\n";
+ // Fungsi untuk mengunduh data dalam format CSV dari ketiga chart
+function downloadData() {
+  // Mendefinisikan label untuk file CSV
+  var temperatureLabels = "Waktu,Temperature\n";
+  var currentLabels = "Waktu,Current\n";
+  var voltageLabels = "Waktu,Voltage\n";
 
-    // Mendapatkan data dari ketiga chart
-    var labels = solarLineChart.data.labels;
-    var temperatureData = solarLineChart.data.datasets[0].data;
-    var currentData = currentLineChart.data.datasets[0].data;
-    var voltageData = voltageLineChart.data.datasets[0].data;
+  // Mendapatkan data dari ketiga chart
+  var labels = solarLineChart.data.labels;
+  var temperatureData = temperatureLineChart.data.datasets[0].data;
+  var currentData = currentLineChart.data.datasets[0].data;
+  var voltageData = voltageLineChart.data.datasets[0].data;
 
-    // Mendefinisikan data untuk file CSV
-    var csvData = labels.map((label, index) => {
-      return `${label},${temperatureData[index]},${currentData[index]},${voltageData[index]}`;
-    }).join("\n");
+  // Mendefinisikan data untuk file CSV
+  var temperatureDataCsv = labels.map((label, index) => {
+      return `${label},${temperatureData[index]}`;
+  }).join("\n");
 
-    // Gabungkan label dan data CSV
-    var csvContent = "data:text/csv;charset=utf-8," + csvLabels + csvData;
+  var currentDataCsv = labels.map((label, index) => {
+      return `${label},${currentData[index]}`;
+  }).join("\n");
 
-    // Proses membuat file CSV dan mengunduhnya
-    var encodedUri = encodeURI(csvContent);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "solar_data.csv");
-    document.body.appendChild(link); // Required for FF
+  var voltageDataCsv = labels.map((label, index) => {
+      return `${label},${voltageData[index]}`;
+  }).join("\n");
 
-    link.click();
-    document.body.removeChild(link);
-  }
+  // Gabungkan semua data CSV
+  var csvContent = 
+      "Temperature Data:\n" + temperatureLabels + temperatureDataCsv + "\n\n" +
+      "Current Data:\n" + currentLabels + currentDataCsv + "\n\n" +
+      "Voltage Data:\n" + voltageLabels + voltageDataCsv;
 
-  // Menambahkan event listener untuk tombol "Download"
-  downloadButton.addEventListener("click", downloadData);
+  // Proses membuat file CSV dan mengunduhnya
+  var encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "solar_data.csv");
+  document.body.appendChild(link); // Required for FF
+
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Menambahkan event listener untuk tombol "Download"
+downloadButton.addEventListener("click", downloadData);
 });
